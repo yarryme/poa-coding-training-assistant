@@ -1,0 +1,5 @@
+{
+  "name": "POA Coding Training Assistant",
+  "description": "An interactive web application to help medical residents learn and practice 'Present On Admission' (POA) coding based on official guidelines. It includes learning materials and a quiz with virtual patient cases.",
+  "requestFramePermissions": []
+}
