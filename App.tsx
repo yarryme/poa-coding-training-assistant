@@ -41,7 +41,7 @@ const App: React.FC = () => {
           <div className="flex items-center mb-4 sm:mb-0">
             <CheckBadgeIcon className="w-10 h-10 text-indigo-600" />
             <h1 className="ml-3 text-2xl font-bold text-slate-800 tracking-tight">
-              POA 코딩 훈련 도우미
+              PoA 코딩 훈련 도우미
             </h1>
           </div>
           <nav className="flex w-full sm:w-auto space-x-2 sm:space-x-4">
@@ -55,7 +55,7 @@ const App: React.FC = () => {
       </main>
       <footer className="text-center py-4 text-slate-500 text-sm">
         <p>
-          본 자료는 "입원 시 상병(POA) 코딩지침 및 사례집 (2024. 12.)"을 기반으로 제작되었습니다.
+          본 자료는 "입원 시 상병 코딩지침 및 사례집 (2024. 12.)"을 기반으로 제작되었습니다.
         </p>
       </footer>
     </div>

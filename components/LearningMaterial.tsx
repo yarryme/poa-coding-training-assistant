@@ -18,47 +18,41 @@ const CaseStudy: React.FC<{ title: string; children: React.ReactNode }> = ({ tit
 const LearningMaterial: React.FC = () => {
   return (
     <div className="animate-fade-in">
-      <InfoCard title="1. POA(Present On Admission) 정의 및 목적">
+      <InfoCard title="1. PoA(Present on Admission) 정의 및 목적">
         <p className="text-slate-700 leading-relaxed">
-          <strong>입원 시 상병(Present on Admission, POA)</strong> 정보는 환자가 입원 당시에 가지고 있었던 질환 또는 상태를 구분하는 정보입니다. 입원기간 중 발생한 질환의 현황을 정확히 모니터링하여 환자안전 중심의 의료 질 평가로 전환하기 위한 필수 정보입니다.
+          <strong>입원 시 상병(Present on Admission, PoA)</strong> 정보는 환자가 입원 당시에 가지고 있었던 질환 또는 상태를 구분하는 정보입니다. 입원기간 중 발생한 질환의 현황을 정확히 모니터링하여 환자안전 중심의 의료 질 평가로 전환하기 위한 필수 정보입니다.
         </p>
       </InfoCard>
 
-      <InfoCard title="2. POA 구분코드 정의">
+      <InfoCard title="2. 입원 시 상병 구분코드">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr>
                 <th className="border-b-2 border-slate-300 p-3 bg-slate-100 font-semibold text-slate-700">코드</th>
-                <th className="border-b-2 border-slate-300 p-3 bg-slate-100 font-semibold text-slate-700">명칭 (의미)</th>
                 <th className="border-b-2 border-slate-300 p-3 bg-slate-100 font-semibold text-slate-700">설명</th>
               </tr>
             </thead>
             <tbody>
               <tr className="hover:bg-slate-50">
-                <td className="border-b border-slate-200 p-3 font-mono font-bold text-green-600">Y</td>
-                <td className="border-b border-slate-200 p-3 font-semibold">Yes</td>
+                <td className="border-b border-slate-200 p-3 font-mono font-bold text-green-600">Y(Yes)</td>
                 <td className="border-b border-slate-200 p-3">해당 상병이 입원 당시에 존재함</td>
               </tr>
               <tr className="hover:bg-slate-50">
-                <td className="border-b border-slate-200 p-3 font-mono font-bold text-red-600">N</td>
-                <td className="border-b border-slate-200 p-3 font-semibold">No</td>
-                <td className="border-b border-slate-200 p-3">해당 상병이 입원 당시에 존재하지 않음 (입원 후 발생)</td>
+                <td className="border-b border-slate-200 p-3 font-mono font-bold text-red-600">N(No)</td>
+                <td className="border-b border-slate-200 p-3">해당 상병이 입원 당시에 존재하지 않음 (입원 중 발생)</td>
               </tr>
               <tr className="hover:bg-slate-50">
-                <td className="border-b border-slate-200 p-3 font-mono font-bold text-yellow-600">U</td>
-                <td className="border-b border-slate-200 p-3 font-semibold">Unknown</td>
+                <td className="border-b border-slate-200 p-3 font-mono font-bold text-yellow-600">U(Unknown)</td>
                 <td className="border-b border-slate-200 p-3">입원 시 존재 여부를 결정할 수 있는 기록이 불충분함</td>
               </tr>
               <tr className="hover:bg-slate-50">
-                <td className="border-b border-slate-200 p-3 font-mono font-bold text-purple-600">W</td>
-                <td className="border-b border-slate-200 p-3 font-semibold">Clinically Undetermined</td>
+                <td className="border-b border-slate-200 p-3 font-mono font-bold text-purple-600">W(Clinically Undetermined)</td>
                 <td className="border-b border-slate-200 p-3">의료제공자가 임상적으로 입원 시 존재 여부를 결정할 수 없음</td>
               </tr>
                <tr className="hover:bg-slate-50">
-                <td className="border-b border-slate-200 p-3 font-mono font-bold text-slate-500">E</td>
-                <td className="border-b border-slate-200 p-3 font-semibold">Exempt</td>
-                <td className="border-b border-slate-200 p-3">POA 보고에서 제외되는 예외상병</td>
+                <td className="border-b border-slate-200 p-3 font-mono font-bold text-slate-500">E(Exempt)</td>
+                <td className="border-b border-slate-200 p-3">예외상병</td>
               </tr>
             </tbody>
           </table>
@@ -70,7 +64,7 @@ const LearningMaterial: React.FC = () => {
         <ul className="list-disc list-inside space-y-2 mb-6 text-slate-700">
           <li>모든 상병명(상병분류기호)에 부여해야 합니다.</li>
           <li>의무기록지에 기록된 자료를 근거로 작성해야 합니다.</li>
-          <li>해당 상병이 <strong>진단된 시점</strong>이 아닌 <strong>발생 시점</strong>을 기준으로 작성해야 합니다.</li>
+          <li>해당 상병이 진단된 시점이 아닌 <strong>발생 시점</strong>을 기준으로 작성해야 합니다.</li>
         </ul>
         <h3 className="text-lg font-semibold text-slate-800 mb-2">세부 원칙</h3>
         <ol className="list-decimal list-inside space-y-3 text-slate-700">
@@ -107,7 +101,7 @@ const LearningMaterial: React.FC = () => {
                 신생아 상병: 출생 시점에 존재한 모든 상태는 ‘<strong className="text-green-700">Y</strong>’ (자궁 내, 분만 중 발생 포함)
             </li>
             <li>
-                POA 보고 예외 목록에 해당하는 상병: ‘<strong className="text-slate-600">E</strong>’
+                PoA 예외코드 목록에 해당하는 상병: ‘<strong className="text-slate-600">E</strong>’
             </li>
         </ol>
       </InfoCard>
@@ -124,7 +118,7 @@ const LearningMaterial: React.FC = () => {
                     <p className="text-sm text-slate-600">38주 6일 초산모로 진통 있어 입원, 자연분만 시도 중 태아 하강 및 자궁경부 개대 정지 소견 보여 응급 제왕절개술 시행함.</p>
                 </div>
             </div>
-            <h4 className="font-semibold text-slate-700 mb-2">진단상병에 대한 POA 적용 결과</h4>
+            <h4 className="font-semibold text-slate-700 mb-2">진단상병에 대한 PoA 적용 결과</h4>
             <div className="overflow-x-auto mb-4">
                 <table className="w-full text-sm text-left border-collapse">
                     <thead className="bg-slate-200">
@@ -145,8 +139,8 @@ const LearningMaterial: React.FC = () => {
                 </table>
             </div>
             <div className="bg-white p-3 rounded border border-slate-200 text-sm">
-                <p>‘<strong>O64.0</strong>’, ‘<strong>O62.0</strong>’, ‘<strong>O82.1</strong>’은 진통으로 입원 후 자연분만 시도 중 발생하거나 진단된 상병입니다. 이는 입원 시점에는 존재하지 않았던 상황이므로 <strong>‘POA 코딩원칙 4’</strong>에 근거하여 <strong className="text-red-700">N</strong>을 부여합니다.</p>
-                <p className="mt-2">‘<strong>Z35.5</strong>’, ‘<strong>Z37.02</strong>’는 환자의 상태를 설명하지만 질병이나 손상이 아니며, POA 보고 예외 코드 목록에 해당하므로 <strong>‘POA 코딩원칙 11’</strong>에 근거하여 <strong className="text-slate-600">E</strong>를 부여합니다.</p>
+                <p>‘<strong>O64.0</strong>’, ‘<strong>O62.0</strong>’, ‘<strong>O82.1</strong>’은 진통으로 입원 후 자연분만 시도 중 발생하거나 진단된 상병입니다. 이는 입원 시점에는 존재하지 않았던 상황이므로 <strong>‘세부 원칙 4’</strong>에 근거하여 <strong className="text-red-700">N</strong>을 부여합니다.</p>
+                <p className="mt-2">‘<strong>Z35.5</strong>’, ‘<strong>Z37.02</strong>’는 환자의 상태를 설명하지만 질병이나 손상이 아니며, PoA 예외 코드 목록에 해당하므로 <strong>‘세부 원칙 11’</strong>에 근거하여 <strong className="text-slate-600">E</strong>를 부여합니다.</p>
             </div>
         </CaseStudy>
 
@@ -161,7 +155,7 @@ const LearningMaterial: React.FC = () => {
                     <p className="text-sm text-slate-600">전립선 증식증 수술을 위해 입원. 수술 후 2일째부터 39℃ 이상 고열 지속되어 수술 후 감염(의증) 진단 하에 항생제 치료함.</p>
                 </div>
             </div>
-            <h4 className="font-semibold text-slate-700 mb-2">진단상병에 대한 POA 적용 결과</h4>
+            <h4 className="font-semibold text-slate-700 mb-2">진단상병에 대한 PoA 적용 결과</h4>
             <div className="overflow-x-auto mb-4">
                 <table className="w-full text-sm text-left border-collapse">
                     <thead className="bg-slate-200">
@@ -180,9 +174,9 @@ const LearningMaterial: React.FC = () => {
                 </table>
             </div>
             <div className="bg-white p-3 rounded border border-slate-200 text-sm">
-                <p>‘<strong>N40.0</strong>’은 입원 이전부터 진단받고 치료 중이던 상병으로 입원의 주된 원인이므로 <strong>‘POA 코딩원칙 1’</strong>에 근거하여 <strong className="text-green-700">Y</strong>를 부여합니다.</p>
-                <p className="mt-2">‘<strong>T81.4</strong>’는 입원 후 시행된 수술 이후에 발생한 합병증입니다. 수술 후 발열 기록을 통해 입원 시점에는 존재하지 않았음이 확인되므로 <strong>‘POA 코딩원칙 4’</strong>에 근거하여 <strong className="text-red-700">N</strong>을 부여합니다.</p>
-                <p className="mt-2">‘<strong>Y83.6</strong>’은 환자의 질병이 아닌 시행된 처치를 설명하는 코드로, POA 보고 예외 코드 목록에 해당하므로 <strong>‘POA 코딩원칙 11’</strong>에 근거하여 <strong className="text-slate-600">E</strong>를 부여합니다.</p>
+                <p>‘<strong>N40.0</strong>’은 입원 이전부터 진단받고 치료 중이던 상병으로 입원의 주된 원인이므로 <strong>‘세부 원칙 1’</strong>에 근거하여 <strong className="text-green-700">Y</strong>를 부여합니다.</p>
+                <p className="mt-2">‘<strong>T81.4</strong>’는 입원 후 시행된 수술 이후에 발생한 합병증입니다. 수술 후 발열 기록을 통해 입원 시점에는 존재하지 않았음이 확인되므로 <strong>‘세부 원칙 4’</strong>에 근거하여 <strong className="text-red-700">N</strong>을 부여합니다.</p>
+                <p className="mt-2">‘<strong>Y83.6</strong>’은 환자의 질병이 아닌 시행된 처치를 설명하는 코드로, PoA 예외 코드 목록에 해당하므로 <strong>‘세부 원칙 11’</strong>에 근거하여 <strong className="text-slate-600">E</strong>를 부여합니다.</p>
             </div>
         </CaseStudy>
       </InfoCard>
