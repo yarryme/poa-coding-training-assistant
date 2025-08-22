@@ -1,13 +1,102 @@
-
 import React, { useState, useEffect } from 'react';
 import { quizData } from '../constants/quizData';
 import { POACode, QuizQuestion } from '../types';
-import { CheckCircleIcon, XCircleIcon, ChevronLeftIcon, ChevronRightIcon, LightBulbIcon } from './Icons';
+import { CheckCircleIcon, XCircleIcon, ChevronLeftIcon, ChevronRightIcon, LightBulbIcon, ArrowPathIcon, CheckBadgeIcon } from './Icons';
+
+const ResultsScreen = ({ score, total, onRetry }: { score: number; total: number; onRetry: () => void; }) => {
+  const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
+
+  const getFeedback = () => {
+    if (percentage >= 90) {
+      return {
+        message: "훌륭합니다! POA 코딩 전문가시네요.",
+        color: "text-green-600",
+        icon: <CheckBadgeIcon className="w-16 h-16 mx-auto text-green-500" />
+      };
+    }
+    if (percentage >= 70) {
+      return {
+        message: "잘하셨습니다! 조금만 더 학습하면 완벽해질 거예요.",
+        color: "text-blue-600",
+        icon: <CheckBadgeIcon className="w-16 h-16 mx-auto text-blue-500" />
+      };
+    }
+    if (percentage >= 50) {
+      return {
+        message: "좋은 시도입니다! 학습 자료를 다시 살펴보세요.",
+        color: "text-yellow-600",
+        icon: <LightBulbIcon className="w-16 h-16 mx-auto text-yellow-500" />
+      };
+    }
+    return {
+      message: "연습이 더 필요해요. 포기하지 마세요!",
+      color: "text-red-600",
+      icon: <ArrowPathIcon className="w-16 h-16 mx-auto text-red-500" />
+    };
+  };
+
+  const feedback = getFeedback();
+
+  return (
+    <div className="max-w-4xl mx-auto animate-fade-in">
+      <div className="bg-white p-8 rounded-xl shadow-lg text-center">
+        <h2 className="text-3xl font-bold text-indigo-800 mb-4">퀴즈 결과</h2>
+        
+        <div className="my-8">
+          {feedback.icon}
+        </div>
+
+        <p className="text-lg text-slate-600 mb-2">총 {total}문제 중</p>
+        <p className="text-6xl font-bold text-indigo-600 mb-4">{score}문제</p>
+        <p className="text-2xl font-semibold text-slate-700 mb-6">정답!</p>
+        
+        <div className="w-full bg-slate-200 rounded-full h-4 mb-4">
+            <div className="bg-indigo-500 h-4 rounded-full transition-all duration-1000 ease-out" style={{ width: `${percentage}%` }}></div>
+        </div>
+        <p className="text-slate-600 font-bold text-xl mb-6">{percentage}%</p>
+        
+        <p className={`mt-6 text-xl font-semibold ${feedback.color}`}>{feedback.message}</p>
+        
+        <button
+          onClick={onRetry}
+          className="mt-10 flex items-center justify-center w-full sm:w-auto mx-auto px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-transform transform hover:scale-105"
+        >
+          <ArrowPathIcon className="w-5 h-5 mr-2" />
+          퀴즈 다시 풀기
+        </button>
+      </div>
+    </div>
+  );
+};
+
 
 const Quiz: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, POACode | null>>({});
   const [showExplanation, setShowExplanation] = useState<Record<number, boolean>>({});
+  const [quizCompleted, setQuizCompleted] = useState(false);
+
+  const resetQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedAnswers({});
+    setShowExplanation({});
+    setQuizCompleted(false);
+  };
+
+  useEffect(() => {
+    resetQuiz();
+  }, []);
+
+  if (quizCompleted) {
+    const score = quizData.reduce((acc, question) => {
+      if (selectedAnswers[question.id] === question.answer) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
+    
+    return <ResultsScreen score={score} total={quizData.length} onRetry={resetQuiz} />;
+  }
 
   const currentQuestion: QuizQuestion = quizData[currentQuestionIndex];
   const selectedAnswer = selectedAnswers[currentQuestion.id] || null;
@@ -32,13 +121,6 @@ const Quiz: React.FC = () => {
     }
   };
   
-  useEffect(() => {
-    // Reset state if quizData changes (though it's constant here)
-    setSelectedAnswers({});
-    setShowExplanation({});
-    setCurrentQuestionIndex(0);
-  }, []);
-
   const getOptionClasses = (option: POACode) => {
     if (!isAnswered) {
       return 'bg-white hover:bg-indigo-100 text-slate-700 border-slate-300';
@@ -142,14 +224,23 @@ const Quiz: React.FC = () => {
             <ChevronLeftIcon />
             이전
           </button>
-          <button
-            onClick={handleNext}
-            disabled={currentQuestionIndex === quizData.length - 1}
-            className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 disabled:cursor-not-allowed transition-colors"
-          >
-            다음
-            <ChevronRightIcon />
-          </button>
+          {currentQuestionIndex === quizData.length - 1 ? (
+            <button
+              onClick={() => setQuizCompleted(true)}
+              disabled={!isAnswered}
+              className="flex items-center px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 disabled:bg-green-300 disabled:cursor-not-allowed transition-colors"
+            >
+              결과보기
+            </button>
+          ) : (
+            <button
+              onClick={handleNext}
+              className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 disabled:cursor-not-allowed transition-colors"
+            >
+              다음
+              <ChevronRightIcon />
+            </button>
+          )}
         </div>
       </div>
     </div>

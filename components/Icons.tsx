@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export const BookOpenIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -47,4 +46,10 @@ export const LightBulbIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) =>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6" {...props}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.311a7.5 7.5 0 0 1-7.5 0c.065.563.168 1.12.298 1.664a7.453 7.453 0 0 0 7.022 0c.13-.544.233-1.101.298-1.664ZM6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A5.25 5.25 0 0 1 12 6a5.25 5.25 0 0 1 5.25 5.25v3.675m0 0a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
     </svg>
+);
+
+export const ArrowPathIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 11.664 0l3.181-3.183m-3.181-4.991-3.181-3.183a8.25 8.25 0 0 0-11.664 0l-3.181 3.183" />
+  </svg>
 );
