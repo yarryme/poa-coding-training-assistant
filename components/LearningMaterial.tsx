@@ -143,7 +143,7 @@ const LearningMaterial: React.FC = () => {
                                 <th className="p-2 border-b border-slate-300">진단구분</th>
                                 <th className="p-2 border-b border-slate-300">진단코드</th>
                                 <th className="p-2 border-b border-slate-300">진단명</th>
-                                <th className="p-2 border-b border-slate-300 text-center">POA</th>
+                                <th className="p-2 border-b border-slate-300 text-center">PoA</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -180,7 +180,7 @@ const LearningMaterial: React.FC = () => {
                                 <th className="p-2 border-b border-slate-300">진단구분</th>
                                 <th className="p-2 border-b border-slate-300">진단코드</th>
                                 <th className="p-2 border-b border-slate-300">진단명</th>
-                                <th className="p-2 border-b border-slate-300 text-center">POA</th>
+                                <th className="p-2 border-b border-slate-300 text-center">PoA</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -215,7 +215,7 @@ const LearningMaterial: React.FC = () => {
                                 <th className="p-2 border-b border-slate-300">진단구분</th>
                                 <th className="p-2 border-b border-slate-300">진단코드</th>
                                 <th className="p-2 border-b border-slate-300">진단명</th>
-                                <th className="p-2 border-b border-slate-300 text-center">POA</th>
+                                <th className="p-2 border-b border-slate-300 text-center">PoA</th>
                             </tr>
                         </thead>
                         <tbody>
