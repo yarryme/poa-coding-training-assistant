@@ -12,6 +12,12 @@ export const PencilSquareIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props)
   </svg>
 );
 
+export const ClipboardDocumentListIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 6 3.75v12.75c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V18h1.125c.621 0 1.125-.504 1.125-1.125V6.375c0-.621-.504-1.125-1.125-1.125H9.75Z" />
+    </svg>
+);
+
 export const CheckBadgeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6" {...props}>
         <path fillRule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.548A4.49 4.49 0 0 1 21.75 12c0 1.357-.6 2.573-1.549 3.397a4.49 4.49 0 0 1-1.548 3.498 4.49 4.49 0 0 1-3.397 1.549 4.49 4.49 0 0 1-3.498-1.548 4.49 4.49 0 0 1-1.549-3.397A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.548-3.498 4.49 4.49 0 0 1 3.252-1.554Zm4.237 6.41a.75.75 0 0 1 .218 1.03l-4.5 6a.75.75 0 0 1-1.156-.218l-2.25-3.375a.75.75 0 1 1 1.218-.814l1.606 2.41 3.96-5.28a.75.75 0 0 1 1.03-.218Z" clipRule="evenodd" />

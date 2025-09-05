@@ -136,24 +136,12 @@ const Quiz: React.FC = () => {
     }
     return 'bg-slate-100 text-slate-500 border-slate-200 cursor-not-allowed';
   };
-  
-  const getDifficultyClass = (difficulty: string) => {
-    switch(difficulty) {
-        case '기초': return 'bg-blue-100 text-blue-800';
-        case '중급': return 'bg-yellow-100 text-yellow-800';
-        case '심화': return 'bg-red-100 text-red-800';
-        default: return 'bg-gray-100 text-gray-800';
-    }
-  }
 
 
   return (
     <div className="max-w-4xl mx-auto">
       <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg animate-fade-in-up">
-        <div className="flex justify-between items-center mb-4">
-            <span className={`px-3 py-1 text-sm font-semibold rounded-full ${getDifficultyClass(currentQuestion.difficulty)}`}>
-                난이도: {currentQuestion.difficulty}
-            </span>
+        <div className="flex justify-end items-center mb-4">
             <span className="text-sm font-semibold text-slate-500">
                 문제 {currentQuestionIndex + 1} / {quizData.length}
             </span>
@@ -177,7 +165,7 @@ const Quiz: React.FC = () => {
         </h2>
 
         {/* Options */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
+        <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto mb-6">
           {currentQuestion.options.map(option => (
             <button
               key={option}

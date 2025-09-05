@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import LearningMaterial from './components/LearningMaterial';
 import Quiz from './components/Quiz';
@@ -35,7 +34,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-slate-100 font-sans text-slate-800">
+    <div className="min-h-screen bg-white font-sans text-slate-800">
       <header className="bg-white shadow-md">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center">
           <div className="flex items-center mb-4 sm:mb-0">
@@ -51,7 +50,9 @@ const App: React.FC = () => {
         </div>
       </header>
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {renderView()}
+        <div className="bg-white rounded-2xl shadow-lg p-6">
+          {renderView()}
+        </div>
       </main>
       <footer className="text-center py-4 text-slate-500 text-sm">
         <p>
