@@ -113,7 +113,12 @@ const LearningMaterial: React.FC = () => {
                 <p>④ <strong>입원 시 존재하지 않은</strong> 상병은 <strong className="text-red-700">'N'</strong> (예: 낙상, 약물 부작용, 수술 후 감염)</p>
                 <p>⑤ <strong>복합 상병</strong>은 한 부분이라도 입원 시 존재하지 않으면 <strong className="text-red-700">'N'</strong></p>
                 <p>⑥ <strong>감염원</strong>이 입원 후 밝혀졌더라도 입원 시 관련 증상/검사가 있었다면 <strong className="text-green-700">'Y'</strong></p>
-                <p>⑦ <strong>임신/출산 관련</strong> 상병은 분만 시점을 기준으로 판단하지 않습니다.</p>
+                <div>
+                  <p>⑦ <strong>임신의 합병증이나 산과적 상병</strong>이 입원 시 존재하였다면 <strong className="text-green-700">'Y'</strong>, 존재하지 않았다면 <strong className="text-red-700">'N'</strong></p>
+                  <p className="mt-2 p-2 bg-sky-100 border border-sky-300 rounded-md text-sm font-semibold text-sky-800">
+                    ※ 입원 기간에 분만을 하였는지 여부는 PoA 분류에 영향을 미치지 않습니다.
+                  </p>
+                </div>
                 <p>⑧ <strong>신생아</strong>의 출생 시 또는 자궁 내에서 발생한 병태는 <strong className="text-green-700">'Y'</strong></p>
             </div>
           </AccordionItem>

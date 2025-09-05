@@ -1,37 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { quizData } from '../constants/quizData';
 import { POACode, QuizQuestion } from '../types';
-import { CheckCircleIcon, XCircleIcon, ChevronLeftIcon, ChevronRightIcon, LightBulbIcon, ArrowPathIcon, CheckBadgeIcon } from './Icons';
+import { CheckCircleIcon, XCircleIcon, ChevronLeftIcon, ChevronRightIcon, LightBulbIcon, ArrowPathIcon, FireworksIcon, ThumbsUpIcon, FaceFrownIcon } from './Icons';
 
 const ResultsScreen = ({ score, total, onRetry }: { score: number; total: number; onRetry: () => void; }) => {
   const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
 
   const getFeedback = () => {
-    if (percentage >= 90) {
+    if (score === total) {
       return {
         message: "훌륭합니다! POA 코딩 전문가시네요.",
         color: "text-green-600",
-        icon: <CheckBadgeIcon className="w-16 h-16 mx-auto text-green-500" />
+        icon: <FireworksIcon className="w-16 h-16 mx-auto text-green-500" />
       };
     }
-    if (percentage >= 70) {
+    if (score > 0) {
       return {
         message: "잘하셨습니다! 조금만 더 학습하면 완벽해질 거예요.",
         color: "text-blue-600",
-        icon: <CheckBadgeIcon className="w-16 h-16 mx-auto text-blue-500" />
-      };
-    }
-    if (percentage >= 50) {
-      return {
-        message: "좋은 시도입니다! 학습 자료를 다시 살펴보세요.",
-        color: "text-yellow-600",
-        icon: <LightBulbIcon className="w-16 h-16 mx-auto text-blue-500" />
+        icon: <ThumbsUpIcon className="w-16 h-16 mx-auto text-blue-500" />
       };
     }
     return {
       message: "연습이 더 필요해요. 포기하지 마세요!",
       color: "text-red-600",
-      icon: <ArrowPathIcon className="w-16 h-16 mx-auto text-red-500" />
+      icon: <FaceFrownIcon className="w-16 h-16 mx-auto text-red-500" />
     };
   };
 
