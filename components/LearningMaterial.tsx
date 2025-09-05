@@ -153,8 +153,8 @@ const LearningMaterial: React.FC = () => {
                     </table>
                 </div>
                 <div className="bg-amber-50 p-3 rounded border border-amber-200 text-sm text-slate-700">
-                    <p>‘<strong>M17.0</strong>’는 TKRA 수술의 원인이 된 기저질환으로 입원 시점에 당연히 존재하므로 <strong className="text-green-700">Y</strong>를 부여합니다.</p>
-                    <p className="mt-2">‘<strong>T81.3</strong>’은 입원의 주된 원인이 된 상병입니다. 입원 전 외래에서 경과 관찰 중 확인되었으므로, <strong className="text-green-700">Y</strong>를 부여합니다.</p>
+                    <p>‘<strong>M17.0</strong>’는 TKRA 수술의 원인이 된 기저질환으로 <strong>‘세부 원칙 1’</strong>에 근거하여 <strong className="text-green-700">Y</strong>를 부여합니다.</p>
+                    <p className="mt-2">‘<strong>T81.3</strong>’은 입원의 주된 원인이 된 상병입니다. 입원 전 외래에서 경과 관찰 중 확인되었으므로, <strong>‘세부 원칙 1’</strong>에 근거하여 <strong className="text-green-700">Y</strong>를 부여합니다.</p>
                     <p className="mt-3 p-2 bg-sky-100 border border-sky-300 rounded-md font-semibold text-sky-800">
                         ※ 'T81.3'은 수술 후 합병증을 나타내므로 수술 후 재원 중 발생하는 경우에는 'N'을 부여하나, 입원 전 외래에서 확인되었거나 타 병원에서 진단 후 전원된 경우에는 'Y'를 부여합니다.
                     </p>
