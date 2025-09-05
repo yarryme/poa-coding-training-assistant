@@ -38,7 +38,7 @@ const AccordionItem: React.FC<{ title: string; children: React.ReactNode }> = ({
     <div className="border border-gray-200 rounded-lg">
       <button
         id={buttonId}
-        className="w-full p-4 text-left font-semibold bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg"
+        className="w-full p-4 text-left font-semibold bg-gray-50 hover:bg-gray-100 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg relative focus:z-10"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-controls={contentId}
@@ -106,16 +106,16 @@ const LearningMaterial: React.FC = () => {
             </ul>
           </AccordionItem>
           <AccordionItem title="세부 원칙">
-            <ol className="list-decimal list-inside p-4 text-gray-700 space-y-2">
-                <li><strong>입원 시 또는 입원 이전</strong>에 진단받은 상병은 <strong className="text-green-700">'Y'</strong></li>
-                <li>입원 중 진단되었더라도 입원 시 존재가 <strong>명확</strong>한 상병은 <strong className="text-green-700">'Y'</strong></li>
-                <li>입원 중 진단된 <strong>만성질환</strong>은 입원 시 존재 여부가 확인되지 않아도 <strong className="text-green-700">'Y'</strong></li>
-                <li><strong>입원 시 존재하지 않은</strong> 상병은 <strong className="text-red-700">'N'</strong> (예: 낙상, 약물 부작용, 수술 후 감염)</li>
-                <li><strong>복합 상병</strong>은 한 부분이라도 입원 시 존재하지 않으면 <strong className="text-red-700">'N'</strong></li>
-                <li><strong>감염원</strong>이 입원 후 밝혀졌더라도 입원 시 관련 증상/검사가 있었다면 <strong className="text-green-700">'Y'</strong></li>
-                <li><strong>임신/출산 관련</strong> 상병은 분만 시점을 기준으로 판단하지 않습니다.</li>
-                <li><strong>신생아</strong>의 출생 시 또는 자궁 내에서 발생한 병태는 <strong className="text-green-700">'Y'</strong></li>
-            </ol>
+            <div className="p-4 text-gray-700 space-y-2">
+                <p>① <strong>입원 시 또는 입원 이전</strong>에 진단받은 상병은 <strong className="text-green-700">'Y'</strong></p>
+                <p>② 입원 중 진단되었더라도 입원 시 존재가 <strong>명확</strong>한 상병은 <strong className="text-green-700">'Y'</strong></p>
+                <p>③ 입원 중 진단된 <strong>만성질환</strong>은 입원 시 존재 여부가 확인되지 않아도 <strong className="text-green-700">'Y'</strong></p>
+                <p>④ <strong>입원 시 존재하지 않은</strong> 상병은 <strong className="text-red-700">'N'</strong> (예: 낙상, 약물 부작용, 수술 후 감염)</p>
+                <p>⑤ <strong>복합 상병</strong>은 한 부분이라도 입원 시 존재하지 않으면 <strong className="text-red-700">'N'</strong></p>
+                <p>⑥ <strong>감염원</strong>이 입원 후 밝혀졌더라도 입원 시 관련 증상/검사가 있었다면 <strong className="text-green-700">'Y'</strong></p>
+                <p>⑦ <strong>임신/출산 관련</strong> 상병은 분만 시점을 기준으로 판단하지 않습니다.</p>
+                <p>⑧ <strong>신생아</strong>의 출생 시 또는 자궁 내에서 발생한 병태는 <strong className="text-green-700">'Y'</strong></p>
+            </div>
           </AccordionItem>
         </div>
       </div>
