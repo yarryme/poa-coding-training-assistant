@@ -9,8 +9,8 @@ export const quizData: QuizQuestion[] = [
       details: '평소 고혈압, 제2형 당뇨병으로 외래에서 약물 치료 중인 환자. 3일 전부터 시작된 기침, 노란색 가래, 38.5℃의 발열을 주소로 응급실에 내원. 흉부 X-ray 검사에서 우하엽 폐 경화(consolidation) 소견이 관찰되어 폐렴 진단 하에 입원함.'
     },
     diagnoses: {
-      primary: '폐렴 (Pneumonia)',
-      secondary: '고혈압 (Hypertension), 제2형 당뇨병 (Type 2 Diabetes Mellitus)'
+      primary: '폐렴',
+      secondary: '고혈압, 제2형 당뇨병'
     },
     question: '주상병인 \'폐렴\'에 대한 올바른 PoA 값은 무엇입니까?',
     targetDiagnosis: '폐렴',
