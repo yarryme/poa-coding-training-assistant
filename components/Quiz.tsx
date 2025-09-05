@@ -25,7 +25,7 @@ const ResultsScreen = ({ score, total, onRetry }: { score: number; total: number
       return {
         message: "좋은 시도입니다! 학습 자료를 다시 살펴보세요.",
         color: "text-yellow-600",
-        icon: <LightBulbIcon className="w-16 h-16 mx-auto text-yellow-500" />
+        icon: <LightBulbIcon className="w-16 h-16 mx-auto text-blue-500" />
       };
     }
     return {
@@ -40,18 +40,18 @@ const ResultsScreen = ({ score, total, onRetry }: { score: number; total: number
   return (
     <div className="max-w-4xl mx-auto animate-fade-in">
       <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-        <h2 className="text-3xl font-bold text-indigo-800 mb-4">퀴즈 결과</h2>
+        <h2 className="text-3xl font-bold text-blue-800 mb-4">퀴즈 결과</h2>
         
         <div className="my-8">
           {feedback.icon}
         </div>
 
         <p className="text-lg text-slate-600 mb-2">총 {total}문제 중</p>
-        <p className="text-6xl font-bold text-indigo-600 mb-4">{score}문제</p>
+        <p className="text-6xl font-bold text-blue-600 mb-4">{score}문제</p>
         <p className="text-2xl font-semibold text-slate-700 mb-6">정답!</p>
         
         <div className="w-full bg-slate-200 rounded-full h-4 mb-4">
-            <div className="bg-indigo-500 h-4 rounded-full transition-all duration-1000 ease-out" style={{ width: `${percentage}%` }}></div>
+            <div className="bg-blue-500 h-4 rounded-full transition-all duration-1000 ease-out" style={{ width: `${percentage}%` }}></div>
         </div>
         <p className="text-slate-600 font-bold text-xl mb-6">{percentage}%</p>
         
@@ -59,7 +59,7 @@ const ResultsScreen = ({ score, total, onRetry }: { score: number; total: number
         
         <button
           onClick={onRetry}
-          className="mt-10 flex items-center justify-center w-full sm:w-auto mx-auto px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-transform transform hover:scale-105"
+          className="mt-10 flex items-center justify-center w-full sm:w-auto mx-auto px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105"
         >
           <ArrowPathIcon className="w-5 h-5 mr-2" />
           퀴즈 다시 풀기
@@ -123,7 +123,7 @@ const Quiz: React.FC = () => {
   
   const getOptionClasses = (option: POACode) => {
     if (!isAnswered) {
-      return 'bg-white hover:bg-indigo-100 text-slate-700 border-slate-300';
+      return 'bg-white hover:bg-blue-100 text-slate-700 border-slate-300';
     }
     const isCorrect = option === currentQuestion.answer;
     const isSelected = option === selectedAnswer;
@@ -160,7 +160,7 @@ const Quiz: React.FC = () => {
         </div>
 
         {/* Question */}
-        <h2 className="text-xl font-bold text-center mb-6 text-indigo-800">
+        <h2 className="text-xl font-bold text-center mb-6 text-blue-800">
           {currentQuestion.question}
         </h2>
 
@@ -184,7 +184,7 @@ const Quiz: React.FC = () => {
         {showExplanation[currentQuestion.id] && (
            <div className="p-4 mt-6 border rounded-lg animate-fade-in bg-slate-50 border-slate-200">
              <div className="flex items-start">
-               <LightBulbIcon className="w-8 h-8 text-yellow-500 mr-3 flex-shrink-0" />
+               <LightBulbIcon className="w-8 h-8 text-blue-500 mr-3 flex-shrink-0" />
                <div>
                  <h4 className="font-bold text-lg mb-2 text-slate-800">해설</h4>
                  <p className="text-slate-600 mb-3 text-sm">{currentQuestion.explanation.general}</p>
@@ -223,7 +223,7 @@ const Quiz: React.FC = () => {
           ) : (
             <button
               onClick={handleNext}
-              className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed transition-colors"
             >
               다음
               <ChevronRightIcon />

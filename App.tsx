@@ -22,9 +22,9 @@ const App: React.FC = () => {
   const NavButton = ({ activeView, targetView, icon, text }: { activeView: View, targetView: View, icon: React.ReactNode, text: string }) => (
     <button
       onClick={() => setView(targetView)}
-      className={`flex items-center justify-center w-full sm:w-auto px-6 py-3 text-base font-semibold rounded-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+      className={`flex items-center justify-center w-full sm:w-auto px-6 py-3 text-base font-semibold rounded-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
         activeView === targetView
-          ? 'bg-indigo-600 text-white shadow-lg transform scale-105'
+          ? 'bg-blue-600 text-white shadow-lg transform scale-105'
           : 'bg-white text-slate-700 hover:bg-slate-200'
       }`}
     >
@@ -38,7 +38,7 @@ const App: React.FC = () => {
       <header className="bg-white shadow-md">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center">
           <div className="flex items-center mb-4 sm:mb-0">
-            <CheckBadgeIcon className="w-10 h-10 text-indigo-600" />
+            <CheckBadgeIcon className="w-10 h-10 text-blue-600" />
             <h1 className="ml-3 text-2xl font-bold text-slate-800 tracking-tight">
               PoA 분류 가이드
             </h1>
