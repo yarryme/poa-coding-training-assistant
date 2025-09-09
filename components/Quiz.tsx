@@ -32,7 +32,7 @@ const ResultsScreen = ({ score, total, onRetry }: { score: number; total: number
 
   return (
     <div className="max-w-4xl mx-auto animate-fade-in">
-      <div className="bg-white p-8 rounded-xl shadow-lg text-center">
+      <div className="watermark-container bg-white p-8 rounded-xl shadow-lg text-center">
         <h2 className="text-3xl font-bold text-blue-800 mb-4">퀴즈 결과</h2>
         
         <div className="my-8">
@@ -133,7 +133,7 @@ const Quiz: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg animate-fade-in-up">
+      <div className="watermark-container bg-white p-6 sm:p-8 rounded-xl shadow-lg animate-fade-in-up">
         <div className="flex justify-end items-center mb-4">
             <span className="text-sm font-semibold text-slate-500">
                 문제 {currentQuestionIndex + 1} / {quizData.length}
