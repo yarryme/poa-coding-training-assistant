@@ -5,6 +5,38 @@ import { BookOpenIcon, PencilSquareIcon, CheckBadgeIcon } from './components/Ico
 
 type View = 'learn' | 'quiz';
 
+// Watermark Component
+// This component displays a fixed, semi-transparent watermark centered on the screen.
+// It is designed to be unobtrusive and not interfere with user interactions.
+const Watermark: React.FC = () => {
+  const watermarkStyle: React.CSSProperties = {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    // Center the element and rotate it
+    transform: 'translate(-50%, -50%) rotate(-30deg)',
+    // Subtle color to not obstruct content
+    color: 'rgba(0, 0, 0, 0.05)',
+    // Responsive font size
+    fontSize: 'clamp(6rem, 15vw, 12rem)',
+    fontWeight: 'bold',
+    // Allow clicks to pass through to the content underneath
+    pointerEvents: 'none',
+    // Prevent the watermark text from being selected
+    userSelect: 'none',
+    // Ensure it's on top of other content
+    zIndex: 1000,
+    // Prevent text from wrapping
+    whiteSpace: 'nowrap',
+  };
+
+  return (
+    <div style={watermarkStyle} aria-hidden="true">
+      서울대학교병원
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   const [view, setView] = useState<View>('learn');
 
@@ -35,6 +67,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
+      <Watermark />
       <header className="bg-white shadow-md">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center">
           <div className="flex items-center mb-4 sm:mb-0">
