@@ -159,11 +159,11 @@ const LearningMaterial: React.FC = () => {
                     </table>
                 </div>
                 <div className="bg-blue-50 p-3 rounded border border-blue-200 text-sm text-slate-700">
-                    <p>‘<strong>T81.3</strong>’은 입원의 주된 원인이 된 상병입니다. 입원 전 외래에서 경과 관찰 중 확인되었으므로, <strong>‘세부 원칙 1’</strong>에 근거하여 <strong className="text-green-700">Y</strong>를 부여합니다.</p>
-                    <p className="mt-2 p-2 bg-sky-100 border border-sky-300 rounded-md font-semibold text-sky-800">
+                    <p>‘<strong>T81.3</strong>’은 입원의 주된 원인이 된 상병입니다. 입원 전 외래에서 경과 관찰 중 확인<strong>(세부 원칙 1)</strong>되었으므로, <strong className="text-green-700">Y</strong>를 부여합니다.</p>
+                    <p className="mt-2 p-2 bg-red-100 border border-red-300 rounded-md font-semibold text-red-800">
                         ※ 'T81.3'은 수술 후 합병증을 나타내므로 수술 후 재원 중 발생하는 경우에는 'N'을 부여하나, 입원 전 외래에서 확인되었거나 타 병원에서 진단 후 전원된 경우에는 'Y'를 부여합니다.
                     </p>
-                    <p className="mt-2">‘<strong>M17.0</strong>’는 TKRA 수술의 원인이 된 기저질환으로 <strong>‘세부 원칙 1’</strong>에 근거하여 <strong className="text-green-700">Y</strong>를 부여합니다.</p>
+                    <p className="mt-2">‘<strong>M17.0</strong>’는 TKRA 수술의 원인이 된 기저질환<strong>(세부 원칙 1)</strong>으로, <strong className="text-green-700">Y</strong>를 부여합니다.</p>
                 </div>
             </div>
             <div className="border border-gray-200 rounded-lg p-6">
@@ -196,8 +196,8 @@ const LearningMaterial: React.FC = () => {
                     </table>
                 </div>
                 <div className="bg-blue-50 p-3 rounded border border-blue-200 text-sm text-slate-700">
-                    <p>‘<strong>N40.0</strong>’은 입원 이전부터 진단받고 치료 중이던 상병으로 입원의 주된 원인이므로 <strong>‘세부 원칙 1’</strong>에 근거하여 <strong className="text-green-700">Y</strong>를 부여합니다.</p>
-                    <p className="mt-2">‘<strong>T81.4</strong>’는 입원 후 시행된 수술 이후에 발생한 합병증입니다. 수술 후 발열 기록을 통해 입원 시점에는 존재하지 않았음이 확인되므로 <strong>‘세부 원칙 4’</strong>에 근거하여 <strong className="text-red-700">N</strong>을 부여합니다.</p>
+                    <p>‘<strong>N40.0</strong>’은 입원 이전부터 진단받고 치료 중이던 상병으로 입원의 주된 원인<strong>(세부 원칙 1)</strong>이므로, <strong className="text-green-700">Y</strong>를 부여합니다.</p>
+                    <p className="mt-2">‘<strong>T81.4</strong>’는 입원 후 시행된 수술 이후에 발생한 합병증입니다. 수술 후 발열 기록을 통해 입원 시점에는 존재하지 않았음이 확인<strong>(세부 원칙 4)</strong>되므로, <strong className="text-red-700">N</strong>을 부여합니다.</p>
                 </div>
             </div>
             <div className="border border-gray-200 rounded-lg p-6">
@@ -232,7 +232,7 @@ const LearningMaterial: React.FC = () => {
                     </table>
                 </div>
                 <div className="bg-blue-50 p-3 rounded border border-blue-200 text-sm text-slate-700">
-                    <p>‘<strong>O64.0</strong>’, ‘<strong>O62.0</strong>’, ‘<strong>O82.1</strong>’은 진통으로 입원 후 자연분만 시도 중 발생한 상병입니다. 이는 입원 시점에는 존재하지 않았던 상황이므로 <strong>‘세부 원칙 4’</strong>에 근거하여 <strong className="text-red-700">N</strong>을 부여합니다.</p>
+                    <p>‘<strong>O64.0</strong>’, ‘<strong>O62.0</strong>’, ‘<strong>O82.1</strong>’은 진통으로 입원 후 자연분만 시도 중 발생한 상병입니다. 이는 입원 시점에는 존재하지 않았던 상황<strong>(세부 원칙 4)</strong>이므로, <strong className="text-red-700">N</strong>을 부여합니다.</p>
                 </div>
             </div>
         </div>
