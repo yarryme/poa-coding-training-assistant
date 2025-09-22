@@ -3,6 +3,13 @@ import LearningMaterial from './components/LearningMaterial';
 import Quiz from './components/Quiz';
 import { BookOpenIcon, PencilSquareIcon, CheckBadgeIcon } from './components/Icons';
 
+// Add type definition for gtag to the global window object
+declare global {
+  interface Window {
+    gtag?: (command: 'event', action: string, params: { [key: string]: any }) => void;
+  }
+}
+
 type View = 'learn' | 'quiz';
 
 // Watermark Component
@@ -51,19 +58,31 @@ const App: React.FC = () => {
     }
   };
 
-  const NavButton = ({ activeView, targetView, icon, text }: { activeView: View, targetView: View, icon: React.ReactNode, text: string }) => (
-    <button
-      onClick={() => setView(targetView)}
-      className={`flex items-center justify-center w-full sm:w-auto px-6 py-3 text-base font-semibold rounded-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-        activeView === targetView
-          ? 'bg-blue-600 text-white shadow-lg transform scale-105'
-          : 'bg-white text-slate-700 hover:bg-slate-200'
-      }`}
-    >
-      {icon}
-      <span className="ml-3">{text}</span>
-    </button>
-  );
+  const NavButton = ({ activeView, targetView, icon, text }: { activeView: View, targetView: View, icon: React.ReactNode, text: string }) => {
+    const handleClick = () => {
+      setView(targetView);
+      if (targetView === 'quiz' && typeof window.gtag === 'function') {
+        window.gtag('event', 'select_content', {
+          content_type: 'tab_navigation',
+          item_id: 'quiz'
+        });
+      }
+    };
+
+    return (
+      <button
+        onClick={handleClick}
+        className={`flex items-center justify-center w-full sm:w-auto px-6 py-3 text-base font-semibold rounded-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+          activeView === targetView
+            ? 'bg-blue-600 text-white shadow-lg transform scale-105'
+            : 'bg-white text-slate-700 hover:bg-slate-200'
+        }`}
+      >
+        {icon}
+        <span className="ml-3">{text}</span>
+      </button>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
