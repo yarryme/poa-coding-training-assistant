@@ -52,14 +52,14 @@ const App: React.FC = () => {
   const handleLogin = (employeeId: string) => {
     const scriptUrl = 'https://script.google.com/macros/s/AKfycbwxqJVAlOJ95tIUMLKhmfsJQYIk-FRDzbBGQG2PspN5HJ28tnGQMmAfqJuBbRR91a61KA/exec';
 
-    const formData = new FormData();
-    formData.append('employeeId', employeeId);
-    formData.append('timestamp', new Date().toISOString());
+    const data = new URLSearchParams();
+    data.append('employeeId', employeeId);
+    data.append('timestamp', new Date().toISOString());
 
     // Fire-and-forget POST request
     fetch(scriptUrl, {
       method: 'POST',
-      body: formData,
+      body: data,
       mode: 'no-cors',
     }).catch(error => {
       // Log errors for debugging but don't block the user
