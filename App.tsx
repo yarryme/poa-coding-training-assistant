@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LearningMaterial from './components/LearningMaterial';
 import Quiz from './components/Quiz';
+import LoginScreen from './components/LoginScreen';
 import { BookOpenIcon, PencilSquareIcon, CheckBadgeIcon } from './components/Icons';
 
 // Add type definition for gtag to the global window object
@@ -45,7 +46,29 @@ const Watermark: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [view, setView] = useState<View>('learn');
+
+  const handleLogin = (employeeId: string) => {
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbwxqJVAlOJ95tIUMLKhmfsJQYIk-FRDzbBGQG2PspN5HJ28tnGQMmAfqJuBbRR91a61KA/exec';
+
+    const formData = new FormData();
+    formData.append('employeeId', employeeId);
+    formData.append('timestamp', new Date().toISOString());
+
+    // Fire-and-forget POST request
+    fetch(scriptUrl, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors',
+    }).catch(error => {
+      // Log errors for debugging but don't block the user
+      console.error('Error submitting employee ID:', error);
+    });
+
+    setIsAuthenticated(true);
+  };
+
 
   const renderView = () => {
     switch (view) {
@@ -83,6 +106,10 @@ const App: React.FC = () => {
       </button>
     );
   };
+
+  if (!isAuthenticated) {
+    return <LoginScreen onLogin={handleLogin} />;
+  }
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
