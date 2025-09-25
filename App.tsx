@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import LearningMaterial from './components/LearningMaterial';
 import Quiz from './components/Quiz';
@@ -50,23 +51,52 @@ const App: React.FC = () => {
   const [view, setView] = useState<View>('learn');
 
   const handleLogin = (employeeId: string) => {
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbwxqJVAlOJ95tIUMLKhmfsJQYIk-FRDzbBGQG2PspN5HJ28tnGQMmAfqJuBbRR91a61KA/exec';
-
-    const data = new URLSearchParams();
-    data.append('employeeId', employeeId);
-    data.append('timestamp', new Date().toISOString());
-
-    // Fire-and-forget POST request
-    fetch(scriptUrl, {
-      method: 'POST',
-      body: data,
-      mode: 'no-cors',
-    }).catch(error => {
-      // Log errors for debugging but don't block the user
-      console.error('Error submitting employee ID:', error);
-    });
-
+    // Authenticate user immediately for a good UX, log data in the background.
     setIsAuthenticated(true);
+
+    const logData = async () => {
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbwxqJVAlOJ95tIUMLKhmfsJQYIk-FRDzbBGQG2PspN5HJ28tnGQMmAfqJuBbRR91a61KA/exec';
+      const trimmedId = employeeId.trim();
+
+      const getKstTimestamp = (): string => {
+        const now = new Date();
+        const kstOffset = 9 * 60 * 60 * 1000; // 9 hours in milliseconds
+        const kstDate = new Date(now.getTime() + kstOffset);
+
+        // Use UTC methods on the adjusted date to get the correct KST time components
+        const year = kstDate.getUTCFullYear();
+        const month = String(kstDate.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(kstDate.getUTCDate()).padStart(2, '0');
+        const hours = String(kstDate.getUTCHours()).padStart(2, '0');
+        const minutes = String(kstDate.getUTCMinutes()).padStart(2, '0');
+        const seconds = String(kstDate.getUTCSeconds()).padStart(2, '0');
+
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      };
+      
+      try {
+        const body = JSON.stringify({
+          employeeId: trimmedId,
+          timestamp: getKstTimestamp(),
+        });
+        
+        // Fire-and-forget POST request. 'no-cors' sends the request but doesn't allow reading the response,
+        // which is fine for logging and avoids CORS issues with Google Scripts.
+        await fetch(scriptUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: body,
+          mode: 'no-cors',
+        });
+      } catch (error) {
+        // This will only catch fundamental network errors, not script errors.
+        console.error('Error submitting employee ID:', error);
+      }
+    };
+
+    logData();
   };
 
 
