@@ -39,7 +39,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
                         type="text"
                         value={employeeId}
                         onChange={(e) => setEmployeeId(e.target.value)}
-                        placeholder="예: 123456"
+                        placeholder="예: 12345"
                         required
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
                         aria-label="사번 입력"

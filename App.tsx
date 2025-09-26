@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import LearningMaterial from './components/LearningMaterial';
 import Quiz from './components/Quiz';
+import Feedback from './components/Feedback';
 import LoginScreen from './components/LoginScreen';
-import { BookOpenIcon, PencilSquareIcon, CheckBadgeIcon } from './components/Icons';
+import { BookOpenIcon, PencilSquareIcon, CheckBadgeIcon, ChatBubbleBottomCenterTextIcon } from './components/Icons';
 
 // Add type definition for gtag to the global window object
 declare global {
@@ -12,7 +13,7 @@ declare global {
   }
 }
 
-type View = 'learn' | 'quiz';
+type View = 'learn' | 'quiz' | 'feedback';
 
 // Watermark Component
 // This component displays a fixed, semi-transparent watermark centered on the screen.
@@ -49,14 +50,16 @@ const Watermark: React.FC = () => {
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [view, setView] = useState<View>('learn');
+  const [employeeId, setEmployeeId] = useState('');
 
-  const handleLogin = (employeeId: string) => {
+  const handleLogin = (loginEmployeeId: string) => {
     // Authenticate user immediately for a good UX, log data in the background.
     setIsAuthenticated(true);
+    const trimmedId = loginEmployeeId.trim();
+    setEmployeeId(trimmedId);
 
     const logData = async () => {
       const scriptUrl = 'https://script.google.com/macros/s/AKfycbwxqJVAlOJ95tIUMLKhmfsJQYIk-FRDzbBGQG2PspN5HJ28tnGQMmAfqJuBbRR91a61KA/exec';
-      const trimmedId = employeeId.trim();
 
       const getKstTimestamp = (): string => {
         const now = new Date();
@@ -106,6 +109,8 @@ const App: React.FC = () => {
         return <LearningMaterial />;
       case 'quiz':
         return <Quiz />;
+      case 'feedback':
+        return <Feedback employeeId={employeeId} />;
       default:
         return <LearningMaterial />;
     }
@@ -114,10 +119,10 @@ const App: React.FC = () => {
   const NavButton = ({ activeView, targetView, icon, text }: { activeView: View, targetView: View, icon: React.ReactNode, text: string }) => {
     const handleClick = () => {
       setView(targetView);
-      if (targetView === 'quiz' && typeof window.gtag === 'function') {
+      if (typeof window.gtag === 'function') {
         window.gtag('event', 'select_content', {
           content_type: 'tab_navigation',
-          item_id: 'quiz'
+          item_id: targetView
         });
       }
     };
@@ -155,6 +160,7 @@ const App: React.FC = () => {
           <nav className="flex w-full sm:w-auto space-x-2 sm:space-x-4">
             <NavButton activeView={view} targetView='learn' icon={<BookOpenIcon />} text="학습 자료" />
             <NavButton activeView={view} targetView='quiz' icon={<PencilSquareIcon />} text="실전 퀴즈" />
+            <NavButton activeView={view} targetView='feedback' icon={<ChatBubbleBottomCenterTextIcon />} text="사용자 의견" />
           </nav>
         </div>
       </header>
