@@ -73,7 +73,7 @@ const Feedback: React.FC<FeedbackProps> = ({ employeeId }) => {
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                     <label className="block text-base font-semibold text-slate-700 mb-3">
-                        1. 본 자료가 PoA 개념 학습에 얼마나 도움이 되었나요??
+                        1. 본 자료가 PoA 개념 학습에 얼마나 도움이 되었나요?
                     </label>
                     <div className="flex justify-center space-x-2 sm:space-x-4">
                         {['1', '2', '3', '4', '5'].map((value) => (
