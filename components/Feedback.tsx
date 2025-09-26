@@ -73,7 +73,7 @@ const Feedback: React.FC<FeedbackProps> = ({ employeeId }) => {
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                     <label className="block text-base font-semibold text-slate-700 mb-3">
-                        1. 본 교육 자료에 전반적으로 얼마나 만족하시나요?
+                        1. 본 자료가 PoA 개념 학습에 얼마나 도움이 되었나요??
                     </label>
                     <div className="flex justify-center space-x-2 sm:space-x-4">
                         {['1', '2', '3', '4', '5'].map((value) => (
@@ -98,14 +98,14 @@ const Feedback: React.FC<FeedbackProps> = ({ employeeId }) => {
                         ))}
                     </div>
                     <div className="flex justify-between max-w-sm mx-auto mt-2 text-sm text-slate-500 px-2">
-                        <span>매우 불만족</span>
-                        <span>매우 만족</span>
+                        <span>도움이 되지 않음</span>
+                        <span>매우 도움이 됨</span>
                     </div>
                 </div>
 
                 <div>
                     <label htmlFor="comment" className="block text-base font-semibold text-slate-700 mb-2">
-                        2. 개선할 점이나 좋았던 점을 자유롭게 작성해주세요. (선택)
+                        2. 본 자료에 대한 추가 의견이나 개선점을 알려주세요. (선택)
                     </label>
                     <textarea
                         id="comment"
