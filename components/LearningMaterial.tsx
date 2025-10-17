@@ -69,7 +69,7 @@ const LearningMaterial: React.FC = () => {
       <div>
         <h2 className="text-2xl font-bold mb-4 text-sky-800">1. 개념 및 목적</h2>
         <p className="text-base leading-relaxed bg-sky-50 p-4 rounded-lg text-slate-700">
-          <strong>PoA(Present on Admission, 입원 시 상병)</strong>는 환자가 병원에 <strong className="text-sky-700">입원할 당시 이미 존재했던</strong> 질환이나 상태를 의미합니다. 질환이 진단된 시점이 아닌 <strong className="text-sky-700">발병 시점</strong>이 기준이며, 병원 내에서 발생한 상병(Hospital-Acquired Condition)과 구별하는 데 중요합니다. 정확한 PoA 분류는 환자 안전과 의료 질을 평가하는 데 필수적인 요소입니다.
+          <strong>PoA(Present on Admission, 입원 시 상병)</strong>는 환자가 병원에 <strong className="text-sky-700">입원할 당시 이미 존재했던</strong> 질환이나 상태를 의미합니다. 질환이 진단된 시점이 아닌 <strong className="text-sky-700">발병 시점</strong>이 기준이며, 병원 내에서 발생한 상병(Hospital-Acquired Condition)과 구별하는 데 중요합니다. 정확한 PoA 분류는 <strong className="text-sky-700">환자 안전</strong>과 <strong className="text-sky-700">의료 질 평가</strong>에 필수적인 요소입니다.
         </p>
       </div>
 
@@ -101,7 +101,7 @@ const LearningMaterial: React.FC = () => {
         <div className="space-y-2">
           <AccordionItem title="일반 원칙">
             <ul className="list-disc list-inside p-4 text-gray-700">
-                <li>모든 상병명에 부여합니다.</li>
+                <li>모든 상병에 부여합니다.</li>
                 <li>의무기록을 근거로 부여합니다.</li>
                 <li>진단 시점이 아닌, <strong>발생 시점</strong>을 기준으로 판단합니다.</li>
             </ul>
