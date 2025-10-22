@@ -209,7 +209,7 @@ const LearningMaterial: React.FC = () => {
                     </div>
                     <div>
                         <h4 className="font-semibold text-slate-700 mb-2">입원경과요약</h4>
-                        <p className="text-sm text-slate-600">38주 6일 초산모로 진통 있어 입원하였음(입원초진 치료계획: NVD). NSVD 분만 시도 중 arrested descent & dilatition relater P position으로 응급
+                        <p className="text-sm text-slate-600">38주 6일 초산모로 진통 있어 입원하였음(입원초진 치료계획: NVD). NSVD 분만 시도 중 arrested descent and dilatation related P position으로 응급
 제왕절개술(2025-08-05) 시행 후 통증조절 및 상처소독 후 퇴원함.</p>
                     </div>
                 </div>
